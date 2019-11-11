@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TravelagencyApplication {
 
     public static void main(String[] args) {
+        System.out.println("hello Git");
         SpringApplication.run(TravelagencyApplication.class, args);
     }
 
