@@ -11,26 +11,26 @@ public class DestinationController  {
 
     /* Get A Destination */
     @GetMapping("/destination/{id}")
-    public ResponseEntity<?> GetVoyage (@PathVariable int  id ){
+    public ResponseEntity<?> getDestination (@PathVariable int  id ){
         return  destinationService.getDestination(id);
     }
     // Get all destinations
     @GetMapping("/destinations")
-    public ResponseEntity<?> GetAllVoyages ( ){
+    public ResponseEntity<?> getAllDestinations ( ){
         return  destinationService.getAllDestinations ( );
     }
     // add a destination
     @PostMapping("/destination")
-    public ResponseEntity <?> AddVoyage( @RequestBody Destination destination ){
+    public ResponseEntity <?> addDestination( @RequestBody Destination destination ){
         return  destinationService.addDestination(destination);
 
     }
     @DeleteMapping("/destination/{id}")
-    public ResponseEntity <?> DeleteVoyage ( @PathVariable int id ){
+    public ResponseEntity <?> deleteDestination ( @PathVariable int id ){
         return   destinationService.deleteDestination(id);
     }
     @PutMapping("/destination/{id}")
-    public ResponseEntity<?> UpdateVoyage (@PathVariable int id  , @RequestBody Destination destination)
+    public ResponseEntity<?> UpdateDestination (@PathVariable int id  , @RequestBody Destination destination)
     {
         return  destinationService.updateDestination ( id,destination);
     }

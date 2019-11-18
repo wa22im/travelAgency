@@ -34,4 +34,12 @@ public class VoyageController {
     {
         return  voyageServices.updateVoyage ( id , voyage);
     }
+    @GetMapping("/voyages/byprice")
+    public  ResponseEntity<?> findVoyagesBetween(@RequestParam double min ,@RequestParam double max){
+        return  voyageServices.findVoyagesBetween(min,max);
+    }
+    @GetMapping("/voyages/bypriceAndnbplace")
+    public  ResponseEntity<?> findVoyagesBetweenAndNbplace(@RequestParam double min ,@RequestParam double max ,@RequestParam int nbplace){
+        return  voyageServices.findVoyagesBetweenAndNbplace(min,max,nbplace);
+    }
 }

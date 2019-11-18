@@ -1,5 +1,6 @@
 package com.ditraacademy.travelagency.core.voyage;
 
+import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import com.ditraacademy.travelagency.core.destination.Destination;
 import com.ditraacademy.travelagency.utils.ErrorResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,13 @@ public class VoyageServices {
         }
         voyageRepository.deleteById(id);
         return   new ResponseEntity<>(HttpStatus.OK)  ;
+    }
+    public ResponseEntity<?> findVoyagesBetween(double min , double max ){
+        return  new ResponseEntity<>(voyageRepository.findAllByPrixBetween(min,max),HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> findVoyagesBetweenAndNbplace(double min, double max, int nbplace) {
+        return  new ResponseEntity<>(voyageRepository.findAllByPrixBetweenAndNbPlacesIsNot(min,max,nbplace),HttpStatus.OK);
     }
 
 }
