@@ -26,7 +26,7 @@ public class Hotel extends Audible<String> {
     private String addresse ;
     private String telephone ;
     @JsonIgnore
-     @ManyToMany
+     @ManyToMany(cascade = CascadeType.PERSIST)
      @JoinTable(name = "hotel_chambre",
 
      joinColumns = {@JoinColumn(name="hotel_id")},
@@ -36,5 +36,32 @@ public class Hotel extends Audible<String> {
     List<Chambre>chambres ;
     @JsonIgnore
     private boolean deleted = false ;
+
+
+    public void addChambers(List<Chambre> chambresAdded){
+
+        chambresAdded.forEach(chambre -> {
+
+            if (!chambreExist(chambre.getId()))
+                chambres.add(chambre);
+        });
+    }
+    public void addChambers(Chambre chambresAdded){
+
+
+            if (!chambreExist(chambresAdded.getId()))
+                chambres.add(chambresAdded);
+
+    }
+
+    private  boolean chambreExist ( int idChamber ){
+        for ( Chambre chamber:chambres   ){
+            if ( chamber.getId()==idChamber)
+                return true  ;
+
+        }
+    return  false ;
+    }
+
 
 }

@@ -21,7 +21,7 @@ public class Destination extends Audible<String> {
     private String nom ;
     private String description ;
     @JsonIgnore
-    @OneToMany(mappedBy = "destination")
+    @OneToMany(mappedBy = "destination" , cascade = CascadeType.REMOVE)
     List<Voyage> voyages ;
 
 }

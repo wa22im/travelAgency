@@ -27,10 +27,10 @@ public class Chambre extends Audible<String> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id ;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST })
     private CategorieChambre categorieChambre;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST })
     private TypeChambre typeChambre;
     @JsonIgnore
     private boolean deleted = false ;

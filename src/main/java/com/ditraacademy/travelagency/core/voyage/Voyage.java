@@ -28,7 +28,7 @@ public class Voyage extends Audible<String> {
     private Date date ;
     private  int nbPlaces ;
     private  double prix ;
-    @ManyToOne
+    @ManyToOne( cascade = {CascadeType.REMOVE , CascadeType.PERSIST })
     private Destination destination ;
     @JsonIgnore
     private boolean deleted = false ;
