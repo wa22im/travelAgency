@@ -1,5 +1,6 @@
 package com.ditraacademy.travelagency.core.user;
 
+import com.ditraacademy.travelagency.core.user.model.SignInModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +39,11 @@ public class Controller {
     @PutMapping("/user/{id}")
     public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable int id) {
         return userService.updateUser(user,id);
+    }
+
+
+    @PostMapping("/auth/signin")
+    public  ResponseEntity<? > signIn(@RequestBody  SignInModel signInModel){
+        return  userService.signIn(signInModel);
     }
 }

@@ -6,6 +6,7 @@ import com.ditraacademy.travelagency.utils.ErrorResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,6 +58,7 @@ public class VoyageServices {
     // Get all voyages
     public ResponseEntity<?> getAllVoyages() {
         List<Voyage> voyages = voyageRepository.findAll();
+
         return  new  ResponseEntity<>(voyages ,HttpStatus.OK) ;
          }
 

@@ -2,6 +2,7 @@ package com.ditraacademy.travelagency.core.voyage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +22,7 @@ public class VoyageController {
     }
 
     @PostMapping("/voyage")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity <?> AddVoyage(@RequestBody Voyage voyage ){
         return  voyageServices.addVoyage( voyage);
 
