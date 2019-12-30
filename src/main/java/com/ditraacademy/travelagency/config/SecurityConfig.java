@@ -24,6 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
+
+                .cors()
+                .and()
                 .csrf().disable() // bloque par default tous les requette
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // we don't nees session because we gonna use JWT
