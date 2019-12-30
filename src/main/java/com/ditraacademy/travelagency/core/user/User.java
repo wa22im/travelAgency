@@ -23,6 +23,9 @@ public class User     {
     //@UniqueElements
     private  String mail ;
     private String role = "USER";
+
+    private boolean activated = false ;
+    private String activateToken ;
    // @JsonIgnore
     private  String password ;
 

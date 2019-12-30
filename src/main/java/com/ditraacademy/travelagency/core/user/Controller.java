@@ -13,7 +13,8 @@ public class Controller {
     @Autowired
     UserServices userService;
 
-    @PostMapping("/user")
+
+    @PostMapping("/auth/registre")
     public ResponseEntity<?> creatUser(@RequestBody User user) {
 
         return userService.creatUser(user);
@@ -46,4 +47,8 @@ public class Controller {
     public  ResponseEntity<? > signIn(@RequestBody  SignInModel signInModel){
         return  userService.signIn(signInModel);
     }
+
+    @GetMapping("/auth/activation")
+    public String ActivateAccount (@RequestParam String activationtoken){
+        return userService.activateAccount(activationtoken);}
 }
