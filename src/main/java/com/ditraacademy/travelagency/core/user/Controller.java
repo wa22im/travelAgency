@@ -1,6 +1,7 @@
 package com.ditraacademy.travelagency.core.user;
 
 import com.ditraacademy.travelagency.core.user.model.SignInModel;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Api(tags = "USER")
 public class Controller {
     @Autowired
     UserServices userService;
