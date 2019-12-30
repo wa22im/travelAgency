@@ -16,7 +16,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final String [] PUBLIC_ENDPOINTS = {
          "/hotel**/**",
-            "/voyage**/**"
+            "/voyage**/**",
+            "/upload**/**",
+            "/**"
     };
     @Override
     protected void configure(HttpSecurity http) throws Exception {
